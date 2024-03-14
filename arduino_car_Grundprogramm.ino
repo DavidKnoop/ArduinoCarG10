@@ -1,7 +1,6 @@
 //eingebundene Libaries:
 #include <IRremote.h>
 #include <Servo.h>
-#include "C:\Users\David\OneDrive\Dokumente\Coding\Persönlich\Projekte\ArduinoCarG10\Arduino Bauteile\L298n.ino"
 //Pin festlegung:
 //-----------Linetracker-------------------------
 #define LT_R 10 //Line Tracker ((R)echts Tracker)
@@ -26,14 +25,9 @@
 #define RX 0
 #define TX 1
 //-----------------------------------------------
-uin8_t CS[] = {
-  255,  //ENA Duty-Cycle/Left-Wheels
-  255   //ENB Duty-Cycle/Right-Wheels
-};
 
 //Variablen festlegen:
 Servo myservo;
-
 
 void setup(){
 //-----------------------------------------------
