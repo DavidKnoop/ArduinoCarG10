@@ -10,7 +10,7 @@
 #define ECHO_PIN A4 //Signal empfangen
 #define TRIG_PIN A5 //Signal senden
 //-----------Motor-Rechts------------------------
-#define ENA 3   //oder Pin 5 Car-Speed
+#define ENA 5  //Car-Speed
 #define IN1 7   //Antrieb
 #define IN2 8   //Antrieb
 //-----------Motor-Links-------------------------
