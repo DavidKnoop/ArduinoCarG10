@@ -1,5 +1,5 @@
 //eingebundene Libaries:
-#include <IRRemote.h>
+#include <IRremote.h>
 #include <Servo.h>
 //Pin festlegung:
 #define LT_R 10 //Line Tracker ((R)echts Tracker)
@@ -20,7 +20,7 @@ Servo myservo;
 
 void setup(){
     myservo.attach(3);
-    myservo.write(90);// dreht die Servo auf Referenz -> 90° 
+    myservo.write(99);// dreht die Servo auf Referenz -> 90° 
 
 }
 
