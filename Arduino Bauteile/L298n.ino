@@ -1,9 +1,7 @@
-#define ENA 3   //Car-Speed
-#define ENB 6   //Car-Speed
-#define IN1 7   //Antrieb
-#define IN2 8   //Antrieb
-#define IN3 9   //Antrieb
-#define IN4 11  //Antrieb
+uin8_t CS[] = {
+  255,  //ENA Duty-Cycle/Left-Wheels
+  255   //ENB Duty-Cycle/Right-Wheels
+};
 
 void setup()
 {
@@ -13,6 +11,27 @@ void setup()
     pinMode(IN4, OUTPUT);
     pinMode(ENA, OUTPUT);
     pinMode(ENB, OUTPUT);
+}
+
+void carspeed()
+{
+    analogWrite(ENA, CS[1]);
+    analogWrite(ENB, CS[2]);
+}
+
+void forward()
+{
+    digitalWrite(IN1, HIGH);
+    digitalWrite(IN2, LOW);
+    digitalWrite(IN3, LOW);
+    digitalWrite(IN4, HIGH);
+}
+
+void backward(){
+  digitalWrite(IN1, LOW);
+  digitalWrite(IN2, HIGH);
+  digitalWrite(IN3, HIGH);
+  digitalWrite(IN4, LOW);
 }
 
 void 
