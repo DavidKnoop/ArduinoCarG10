@@ -6,14 +6,16 @@
 #define LT_M 4  //Line Tracker ((M)ittel Tracker)
 #define LT_L 2  //Line Tracker ((L)inks Tracker)
 
-#define ENA 3   //Car-Speed
+#define ENA 3   //oder Pin 5 Car-Speed
 #define ENB 6   //Car-Speed
 #define IN1 7   //Antrieb
 #define IN2 8   //Antrieb
 #define IN3 9   //Antrieb
 #define IN4 11  //Antrieb
-
+#define LED       13        //LED pin
+#define RECV_PIN  12 //Infrarot Sensor
 #define carSpeed 150
+
 //Variablen festlegen:
 Servo myservo;
 
