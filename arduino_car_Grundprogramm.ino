@@ -1,6 +1,7 @@
 //eingebundene Libaries:
 #include <IRremote.h>
 #include <Servo.h>
+#include "C:\Users\David\OneDrive\Dokumente\Coding\Persönlich\Projekte\ArduinoCarG10\Arduino Bauteile\L298n.ino"
 //Pin festlegung:
 //-----------Linetracker-------------------------
 #define LT_R 10 //Line Tracker ((R)echts Tracker)
@@ -19,22 +20,33 @@
 #define IN4 11  //Antrieb
 //-----------LED---------------------------------
 #define LED 13  //LED pin
-//-----------Infrarot----------------------------
+//-----------Infrarot--------------------s--------
 #define RECV_PIN  12 //Infrarot Sensor
 //-----------Bluetooth Modul---------------------
 #define RX 0
 #define TX 1
 //-----------------------------------------------
-#define carSpeed 150
+uin8_t CS[] = {
+  255,  //ENA Duty-Cycle/Left-Wheels
+  255   //ENB Duty-Cycle/Right-Wheels
+};
 
 //Variablen festlegen:
 Servo myservo;
 
 
 void setup(){
+//-----------------------------------------------
     myservo.attach(3);
     myservo.write(99);// dreht die Servo auf Referenz -> 90° 
-
+//----------------------L298N--------------------
+    pinMode(IN1, OUTPUT);
+    pinMode(IN2, OUTPUT);
+    pinMode(IN3, OUTPUT);
+    pinMode(IN4, OUTPUT);
+    pinMode(ENA, OUTPUT);
+    pinMode(ENB, OUTPUT);
+//-----------------------------------------------
 }
 
 void loop(){
