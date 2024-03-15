@@ -1,0 +1,5 @@
+{
+    "board": "arduino:avr:uno",
+    "sketch": "arduino_car_Grundprogramm.ino",
+    "port": "COM3"
+}
