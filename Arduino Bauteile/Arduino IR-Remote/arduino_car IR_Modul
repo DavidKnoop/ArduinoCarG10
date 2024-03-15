@@ -29,7 +29,7 @@ void setup(){
     IrReceiver.enableIRIn(); //IR-Receiver wird eingeschaltet
 }
 
-void loop(){
+void startmenu(){
 if (IrReceiver.decode()) {
     irauswertung=IrReceiver.decodedIRData.command;
     switch(irauswertung.toInt()){ //wandelt den string in ein Integer um
@@ -43,4 +43,8 @@ if (IrReceiver.decode()) {
     }
     IrReceiver.resume();
 }
+}
+
+void loop(){
+    startmenu();
 }
