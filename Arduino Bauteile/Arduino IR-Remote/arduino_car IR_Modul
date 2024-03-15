@@ -6,7 +6,7 @@
 #define LT_M 4  //Line Tracker ((M)ittel Tracker)
 #define LT_L 2  //Line Tracker ((L)inks Tracker)
 
-#define ENA 3   //oder Pin 5 Car-Speed
+#define ENA 5   //Car-Speed
 #define ENB 6   //Car-Speed
 #define IN1 7   //Antrieb
 #define IN2 8   //Antrieb
@@ -18,14 +18,29 @@
 
 //Variablen festlegen:
 Servo myservo;
+String irauswertung;
 
 
 void setup(){
-    myservo.attach(3);
+    myservo.attach(3); //Servo wird angesteuert
     myservo.write(99);// dreht die Servo auf Referenz -> 90° 
-
+    Serial.begin(9600);
+    IrReceiver.begin(RECV_PIN);
+    IrReceiver.enableIRIn(); //IR-Receiver wird eingeschaltet
 }
 
 void loop(){
+if (IrReceiver.decode()) {
+    irauswertung=IrReceiver.decodedIRData.command;
+    switch(irauswertung.toInt()){ //wandelt den string in ein Integer um
+        case 22:
+        Serial.println("Das war case 1");
+        break; //geht raus aus den case
+        case 25:
+        Serial.println("Das war case 2");
+        break;
 
+    }
+    IrReceiver.resume();
+}
 }
