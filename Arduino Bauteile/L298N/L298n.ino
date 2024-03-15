@@ -66,9 +66,9 @@ void curve_right_backward(int SA, int SB) {
     delay(1000);
     curve_right_backward(200, 15);
     delay(1000);
-}'
+}
 
-'void loop()
+void loop()
 {
     delay(1000);
     forward(255, 255);
