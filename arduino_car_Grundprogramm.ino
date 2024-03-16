@@ -29,6 +29,20 @@
 //Variablen festlegen:
 Servo myservo;
 
+// -ALLE- Geschwindigkeiten lassen sich beim Funktionsaufruf festlegen: 
+//        " funktion(Wert1, Wert2); " der Erste Wert für die Linke Seite und der Zweite für die Rechte.
+
+//Funktion Ausnahme beim Aufruf: " cycle_to(Richtung, Wert1, Wert2); " 
+// Wird keine Richtung angegeben dreht er sich im Kreis und fährt gerade aus Weiter.
+//Beachte das ich mit einem Zeitbaustein gearbeitet habe und die drehrichtung daher nicht PERFEKT ist! ( Aber NAH dran!  👈(ﾟヮﾟ👈)  )
+
+const int DEFAULT_SPEED = 200; //Standartmäßige Geschwindigkeit für Vor/Zurück // Hart/zurück-R/L 
+const int DEFAULT_C_SPEED = 75; //Standartmäßige geschwindigkeit für die schwache antriebsseite in einer Kurve
+const int DEFAULT_CYCLE_LS = 100; //Standartmäßige Geschwindigkeit für die Drehung auf der Stelle (Light-Site)
+const int DEFAULT_CYCLE_SS = 200; //Standartmäßige Geschwindigkeit für die Drehung auf der Stelle (Strong-Site)
+const char *DEFAULT_DIRECTION = "forward"; //Standartmäßige Fahrtrichtung 
+long myTimer = 0;
+
 void setup(){
 //-----------------------------------------------
     myservo.attach(3);
