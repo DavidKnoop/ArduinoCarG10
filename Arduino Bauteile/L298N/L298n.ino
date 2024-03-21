@@ -24,9 +24,9 @@ void backward(int SA = DEFAULT_SPEED, int SB = DEFAULT_SPEED)
   digitalWrite(IN4, LOW);
 }
 
-void curve(int SS = DEFAULT_SPEED, int LS = DEFAULT_C_SPEED, const char *direction) // SNBE: Should Not Be Empty!!!
+void curve(const char *DIRECTION, int SS = DEFAULT_SPEED, int LS = DEFAULT_C_SPEED) // DIRECTION: Should Not Be Empty!!!
 {
-  if (strcmp(direction, "right") == 0)
+  if (strcmp(DEFAULT_DIRECTION, "right") == 0)
   {
     carspeed(SS, LS);
     digitalWrite(IN1, HIGH);
@@ -34,7 +34,7 @@ void curve(int SS = DEFAULT_SPEED, int LS = DEFAULT_C_SPEED, const char *directi
     digitalWrite(IN3, LOW);
     digitalWrite(IN4, HIGH);
   }
-  else if (strcmp(direction, "left") == 0)
+  else if (strcmp(DIRECTION, "left") == 0)
   {
     carspeed(LS, SS);
     digitalWrite(IN1, HIGH);
@@ -43,16 +43,16 @@ void curve(int SS = DEFAULT_SPEED, int LS = DEFAULT_C_SPEED, const char *directi
     digitalWrite(IN4, HIGH);
   } else ERROR();
 }
-void curve_backward(int LS = DEFAULT_C_SPEED, int SB = DEFAULT_SPEED, const char *direction)
+void curve_backward(const char *DIRECTION, int LS = DEFAULT_C_SPEED, int SB = DEFAULT_SPEED)
 {
-  if (strcmp(direction, "right") == 0)
+  if (strcmp(DIRECTION, "right") == 0)
   {
     carspeed(LS, SS);
     digitalWrite(IN1, LOW);
     digitalWrite(IN2, HIGH);
     digitalWrite(IN3, HIGH);
     digitalWrite(IN4, LOW);
-  } else if (strcmp(direction, "left") == 0)
+  } else if (strcmp(DIRECTION, "left") == 0)
   {
     carspeed(SS, LS);
     digitalWrite(IN1, LOW);
@@ -60,7 +60,7 @@ void curve_backward(int LS = DEFAULT_C_SPEED, int SB = DEFAULT_SPEED, const char
     digitalWrite(IN3, HIGH);
     digitalWrite(IN4, LOW);
   } else ERROR();
-
+}
 void cycle_to(const char *direction = DEFAULT_DIRECTION, int LS = DEFAULT_CYCLE_LS, int SS = DEFAULT_CYCLE_SS, long myTimout = 0)
 {
   if (strcmp(direction, "left") == 0)
@@ -121,37 +121,37 @@ void cycle_to(const char *direction = DEFAULT_DIRECTION, int LS = DEFAULT_CYCLE_
   } else ERROR();
 }
 
-void HARD(int SA = DEFAULT_SPEED const char *direction)
+void HARD(const char *direction, int SS = DEFAULT_SPEED)
 {
   if (strcmp(direction, "right") == 0)
   {
-    carspeed(SA, 0);
+    carspeed(SS, 0);
     digitalWrite(IN1, HIGH);
     digitalWrite(IN2, LOW);
     digitalWrite(IN3, LOW);
     digitalWrite(IN4, LOW);
   } else if (strcmp(direction, "left") == 0)
   {
-    carspeed(0, SB);
+    carspeed(0, SS);
     digitalWrite(IN1, LOW);
     digitalWrite(IN2, LOW);
     digitalWrite(IN3, LOW);
     digitalWrite(IN4, HIGH);
   } else ERROR();
 }
-}
-void HARDBACK(int SA = DEFAULT_SPEED)
+
+void HARDBACK(const char *direction, int SS = DEFAULT_SPEED)
 {
   if (strcmp(direction, "right") == 0)
   {
-    carspeed(SA, 0);
+    carspeed(SS, 0);
     digitalWrite(IN1, LOW);
     digitalWrite(IN2, HIGH);
     digitalWrite(IN3, LOW);
     digitalWrite(IN4, LOW);
   } else if (strcmp(direction, "left") == 0)
   {
-    carspeed(0, SB);
+    carspeed(0, SS);
     digitalWrite(IN1, LOW);
     digitalWrite(IN2, LOW);
     digitalWrite(IN3, HIGH);
