@@ -224,13 +224,18 @@ void ERROR() // Gedacht als physischer Error (Falls ein falscher wert gegeben wi
   int myTimer = millis();
   while (millis() != myTimer) // dar ich zuvor myTimer auf den gleichen wert wie millis() gesetzt habe, ist millis() sowieso größer(oder zuanfang noch gleich)
   {
-    int myTimeout = 20;
-    while (millis() < myTimer + myTimeout){
-      carspeed(255, 255);
-      digitalWrite(IN1, A);
-      digitalWrite(IN2, B);
-      digitalWrite(IN3, A);
-      digitalWrite(IN4, B);
+    if (millis() % 1000 > 500) {
+      carspeed(70, 70);
+      digitalWrite(IN1, HIGH);
+      digitalWrite(IN2, LOW);
+      digitalWrite(IN3, HIGH);
+      digitalWrite(IN4, LOW);
+    } else {
+      carspeed(70, 70);
+      digitalWrite(IN1, LOW);
+      digitalWrite(IN2, HIGH);
+      digitalWrite(IN3, LOW);
+      digitalWrite(IN4, HIGH);
     }
   }
 }
